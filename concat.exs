@@ -10,6 +10,6 @@ defmodule Concat do
   end
 end
 
-IO.puts Concat.join("Hello", "world")
-IO.puts Concat.join("Hello", "world", "_")
-IO.puts Concat.join("Hello")
+IO.puts(Concat.join("Hello", "world"))
+IO.puts(Concat.join("Hello", "world", "_"))
+IO.puts(Concat.join("Hello"))

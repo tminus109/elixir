@@ -8,5 +8,5 @@ defmodule Math do
   end
 end
 
-IO.puts Math.sum(1, 2)
-IO.puts Math.do_sum(1, 2)
+IO.puts(Math.sum(1, 2))
+IO.puts(Math.do_sum(1, 2))

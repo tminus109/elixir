@@ -8,7 +8,6 @@ defmodule Recursion do
     :ok
   end
 
-
   def sum_list([head | tail], accumulator) do
     sum_list(tail, head + accumulator)
   end
@@ -16,7 +15,6 @@ defmodule Recursion do
   def sum_list([], accumulator) do
     accumulator
   end
-
 
   def double_each([head | tail]) do
     [head * 2 | double_each(tail)]
@@ -29,7 +27,7 @@ end
 
 Recursion.print_multiple_times("Hello!", 3)
 
-IO.puts Recursion.sum_list([1, 2, 3], 0)
+IO.puts(Recursion.sum_list([1, 2, 3], 0))
 
 doubles = Recursion.double_each([1, 2, 3, 4])
 IO.inspect(doubles)
