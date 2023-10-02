@@ -79,7 +79,7 @@ defmodule ListExercise do
   end
 
   defp iterate_sublist(_sublist, 0, new_sublist) do
-    new_sublist
+    Enum.reverse(new_sublist)
   end
 end
 
