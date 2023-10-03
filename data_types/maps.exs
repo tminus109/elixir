@@ -51,18 +51,17 @@ defmodule MapExercise do
   defp map_to_struct(subcontractor_string) do
     subcontractor_as_list = String.split(subcontractor_string, ",")
     name_as_list = split_name(Enum.at(subcontractor_as_list, 0))
-    tech_stack = String.split(Enum.at(subcontractor_as_list, 6), "|")
 
     %Subcontractor{
       first_name: Enum.at(name_as_list, 0),
       middle_name: Enum.at(name_as_list, 1),
       last_name: Enum.at(name_as_list, 2),
-      gender: Enum.at(subcontractor_as_list, 1),
+      gender: convert_gender_to_atom(Enum.at(subcontractor_as_list, 1)),
       dob: convert_date(Enum.at(subcontractor_as_list, 2)),
       phone: Enum.at(subcontractor_as_list, 3),
       email: Enum.at(subcontractor_as_list, 4),
       start_date: convert_date(Enum.at(subcontractor_as_list, 5)),
-      tech_stack: tech_stack,
+      tech_stack: String.split(Enum.at(subcontractor_as_list, 6), "|"),
       is_adult: is_adult?(Enum.at(subcontractor_as_list, 2)),
       has_a_gmail_account: has_a_gmail_account?(Enum.at(subcontractor_as_list, 4))
       # phone_number_country: nil
@@ -98,6 +97,14 @@ defmodule MapExercise do
 
   defp has_a_gmail_account?(email) do
     email =~ ~r/gmail/i
+  end
+
+  defp convert_gender_to_atom(gender) do
+    case gender do
+      "male" -> :male
+      "female" -> :female
+      _ -> :other
+    end
   end
 end
 
