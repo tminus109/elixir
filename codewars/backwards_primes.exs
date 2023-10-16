@@ -8,12 +8,12 @@ defmodule Back do
     |> Enum.to_list()
   end
 
-  def is_reverse_prime?(n) do
+  defp is_reverse_prime?(n) do
     r = n |> Integer.digits() |> Enum.reverse() |> Integer.undigits()
     n != r && is_prime?(r)
   end
 
-  def is_prime?(n) do
+  defp is_prime?(n) do
     n_sqrt = n |> :math.sqrt() |> trunc()
     !Enum.any?(2..n_sqrt, &(rem(n, &1) == 0))
   end
