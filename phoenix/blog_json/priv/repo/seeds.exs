@@ -9,3 +9,7 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+for content <- ["Great", "Cool", "👍🏿"] do
+  {:ok, _} = BlogJson.Blog.create_comment(%{content: content})
+end
