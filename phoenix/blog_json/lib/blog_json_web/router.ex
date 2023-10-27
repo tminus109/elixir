@@ -2,11 +2,15 @@ defmodule BlogJsonWeb.Router do
   use BlogJsonWeb, :router
 
   pipeline :api do
-    plug :accepts, ["json"]
+    plug(:accepts, ["json"])
   end
 
   scope "/api", BlogJsonWeb do
-    pipe_through :api
+    pipe_through(:api)
+
+    resources("/posts", PostController, except: [:edit, :new]) do
+      resources("/comments", CommentController, except: [:edit, :new])
+    end
   end
 
   # Enable LiveDashboard in development
@@ -19,9 +23,9 @@ defmodule BlogJsonWeb.Router do
     import Phoenix.LiveDashboard.Router
 
     scope "/dev" do
-      pipe_through [:fetch_session, :protect_from_forgery]
+      pipe_through([:fetch_session, :protect_from_forgery])
 
-      live_dashboard "/dashboard", metrics: BlogJsonWeb.Telemetry
+      live_dashboard("/dashboard", metrics: BlogJsonWeb.Telemetry)
     end
   end
 end
