@@ -25,4 +25,4 @@ end
 # fields: name
 # one-to-one: chef
 # polymorphic: rating
-# migration: add country & city
+# migrations: add country & city

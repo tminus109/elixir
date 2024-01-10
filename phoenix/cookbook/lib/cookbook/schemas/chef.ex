@@ -24,4 +24,4 @@ end
 # fields: full name, email
 # one-to-one: restaurant
 # one-to-many: recipe
-# migration: add first name & last name, delete full name
+# migrations: add first name & last name, delete full name

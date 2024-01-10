@@ -27,4 +27,4 @@ end
 # one-to-many: chef
 # many-to-many: ingredient
 # polymorphic: rating
-# migration: add cooking_time_min, add constraint name not null
+# migrations: add cooking_time_min, add constraint name not null

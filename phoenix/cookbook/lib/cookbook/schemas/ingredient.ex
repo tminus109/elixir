@@ -19,3 +19,4 @@ end
 
 # fields: name
 # many-to-many: recipe
+# migrations: add not null constraint
